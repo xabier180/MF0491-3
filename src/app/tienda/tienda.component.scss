@@ -1,3 +1,60 @@
+
 header{
     background-color: #242424;
+    height: 40px;
+
+    #supermercado{
+        margin-top: 20px;
+        color: #737373;
+        margin-right: 5px;
+    }
+
+    #lupa{
+        height: 26px;
+        margin-bottom: 4px;
+    }
+  
+    
+    #buscador{
+        position: relative;
+        margin-top: 5px;
+        height: 30px;
+        float: right;
+        margin-right: 200px;
+    }
+
 }
+
+
+
+#foto{
+    height: 200px;
+}
+
+#precio{
+    font-size: 1.2em;
+    color: #868181;
+}
+
+#precio_litro{
+    font-size: 0.8em;
+    color: #B2B2B2;
+}
+
+#descripcion{
+    text-align: justify;
+    font-size: 1em;
+    color: #C8C6BE;
+}
+
+button{
+    text-align: center;
+    border-radius: 0;
+}
+
+#boton_sumar_restar{
+    width: 130px;
+}
+
+
+

@@ -14,7 +14,7 @@ export class ProductosService {
    * Retorna todos los productos que tenemos en productos_disponibles
   */
 
- getAll():Producto[]{
+ getProductos():Producto[]{
   console.log('ProductosService getAll');
   let productos:Producto[] = [];
   let producto;
@@ -28,7 +28,8 @@ export class ProductosService {
                         element.foto, 
                         element.precio,
                         element.precio_litro,
-                        element.oferta
+                        element.oferta,
+                        element.numero_productos
                         );
 
       productos.push(producto);

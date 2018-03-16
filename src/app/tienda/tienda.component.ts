@@ -9,65 +9,37 @@ import { Producto } from '../model/producto';
 })
 export class TiendaComponent implements OnInit {
 
-  productos: Producto[];
-  nombre: string;
+  productos: Array<Producto>;
+  
   producto_seleccionado: Producto;
-  nuevaTarea : string;
+  
 
   constructor(public productosService:ProductosService) {
 
-    this.nombre = "Producto";
+    this.producto_seleccionado = new Producto('', '', 2, '', true, 1);
+    this.productos = new Array<Producto>();
 
     console.log('ProductosComponent constructor');
 
    }
 
   ngOnInit() {
-    this.cargarProductos();
-    console.log('ProductosComponent ngOnInit');
+    console.log('productos')
+    this.productos = this.productosService.getProductos(); 
+  
   }
 
-  cargarProductos(){
-    console.log('ProductosComponent cargarProductos');
-    this.productos = [];
-    this.productosService.getProductos().subscribe(
-      resultado => {
-        console.debug('peticion correcta %o', resultado);
-        this.mapeo(resultado);
-      },
-      error=>{
-        console.warn('peticion incorrecta %o', error);
-      }
-    );
+  recibirProducto(event){
+    console.log('ConcesionarioComponent: recibirProducto %o %i', event.producto);               
+    this.producto_seleccionado = event.producto;   
   }
 
-  /**
-   * Mapea los Datos en formato Json a Todo que proviene del Servicio Rest
-   * @param resultado : any 
-   */
-  mapeo( result : any ){
-
-    let producto:Producto;
-    result.forEach(el => {
-        producto = new Producto( el.descripcion );
-        producto.foto = el.foto;
-        casa.precio = el.precio;
-        casa.habitaciones = el.habitaciones;
-        casa.foto = el.foto;
-        casa.alquiler = el.alquiler;
-        casa.direccion = el.direccion;
-        casa.servicios = el.servicios;
-        
-       /* el.servicios.forEach( el => {
-          s = new Servicio(  );
-          s.nombre = el.servicios.nombre;
-          casa.servicios.push(s);
-        }
-      ) */
-
-        this.casas.push(casa);
-    });
-
+  sumarProducto(){
+    console.log('Click sumarProducto');
+    this.producto_seleccionado.numero_productos++;
   }
+  
+
+  
 
 }
