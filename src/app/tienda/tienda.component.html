@@ -36,13 +36,13 @@
             <div id="boton_sumar_restar">
               <div class="input-group">
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                    <button type="button" class="btn btn-default btn-number" (click)="restarProducto(producto)" data-type="minus" data-field="quant[1]">
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
                 </span>
                 <input id="numero_objetos" type="text" name="quant[1]" class="form-control input-number" value={{producto.numero_productos}} min="1" max="100">
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-number" data-type="plus" (click)="sumarProducto()" data-field="quant[1]">
+                    <button type="button" class="btn btn-default btn-number" data-type="plus" (click)="sumarProducto(producto)" data-field="quant[1]">
                         <span class="glyphicon glyphicon-plus" ></span>
                     </button>
                 </span>

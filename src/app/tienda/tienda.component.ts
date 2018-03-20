@@ -12,6 +12,8 @@ export class TiendaComponent implements OnInit {
   productos: Array<Producto>;
   
   producto_seleccionado: Producto;
+
+  numero_productos: number;
   
 
   constructor(public productosService:ProductosService) {
@@ -34,9 +36,16 @@ export class TiendaComponent implements OnInit {
     this.producto_seleccionado = event.producto;   
   }
 
-  sumarProducto(){
+  sumarProducto(producto_suma:Producto){
     console.log('Click sumarProducto');
-    this.producto_seleccionado.numero_productos++;
+    producto_suma.numero_productos = producto_suma.numero_productos+1;
+  }
+
+  restarProducto(producto_resta:Producto){
+    if(producto_resta.numero_productos>1){
+    console.log('Click sumarProducto');
+    producto_resta.numero_productos = producto_resta.numero_productos-1;
+  }
   }
   
 
